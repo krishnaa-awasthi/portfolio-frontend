@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, CheckCircle2, MapPin, ArrowUpRight } from "lucide-react";
@@ -15,11 +16,13 @@ export default function Contact() {
   // Replace this with your actual Web3Forms Access Key
   const ACCESS_KEY = "84485d49-b072-45e6-bfa2-25f4b07b9918"; 
 
-  const handleChange = (e) => {
+  // FIXED: Added React.ChangeEvent type for the input/textarea event
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
+  // FIXED: Added React.FormEvent type for the form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
 
