@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageSquare, X, Send, Sparkles, Github, Bell } from "lucide-react";
+import { MessageSquare, X, Send, Sparkles, Github, Bell, CheckCircle } from "lucide-react";
 import { supabase } from "../lib/supabase";
 
 // A clean Google SVG icon
@@ -22,7 +22,7 @@ export default function PortfolioChat() {
   const [message, setMessage] = useState("");
   const [chatHistory, setChatHistory] = useState<any[]>([]);
   const [notificationsEnabled, setNotificationsEnabled] = useState(false);
-
+  const [showToast, setShowToast] = useState(false);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   // 1. Fetch History & Setup Realtime Subscription
@@ -75,7 +75,15 @@ export default function PortfolioChat() {
       }
     });
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      // 1. Check for the specific login event
+      if (event === 'SIGNED_IN') {
+        setShowToast(true);
+        // Hide the toast automatically after 4 seconds
+        setTimeout(() => setShowToast(false), 4000);
+      }
+
+      // 2. Handle normal session logic
       if (session) {
         setIsAuthenticated(true);
         setCurrentUser(session.user);
