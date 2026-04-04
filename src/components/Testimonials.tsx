@@ -18,14 +18,29 @@ const ScrollingRow = ({ items, direction = "left", speed = 40 }: { items: any[],
       >
         {/* Tripled to ensure a smooth infinite scroll loop even with a few items */}
         {[...items, ...items, ...items].map((testimonial, index) => (
-          <div key={index} className="w-[300px] md:w-[400px] shrink-0 p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-900/60 hover:border-orange-500/30 transition-all group/card">
+          <div key={index} className="w-[300px] md:w-[400px] shrink-0 p-6 md:p-8 rounded-3xl bg-zinc-900/40 border border-white/5 hover:bg-zinc-900/60 hover:border-orange-500/30 transition-all group/card flex flex-col">
             <div className="flex items-center gap-1 mb-4 text-orange-400">
               {[...Array(testimonial.rating || 5)].map((_, i) => (
                 <Star key={i} className="w-4 h-4 fill-current" />
               ))}
             </div>
-            <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-8">"{testimonial.text}"</p>
-            <div className="flex items-center gap-4 mt-auto">
+            
+            {/* The User's Review */}
+            <p className="text-zinc-300 text-sm md:text-base leading-relaxed mb-4">
+              "{testimonial.text}"
+            </p>
+
+            {/* The Admin's Reply (if it exists in the database) */}
+            {testimonial.admin_reply && (
+              <div className="bg-orange-500/10 border-l-2 border-orange-500 pl-3 py-2 mb-6 rounded-r-lg">
+                <p className="text-[10px] font-bold text-orange-400 uppercase tracking-wider mb-0.5">Response from Krishna</p>
+                <p className="text-zinc-400 text-xs leading-relaxed">
+                  {testimonial.admin_reply}
+                </p>
+              </div>
+            )}
+
+            <div className="flex items-center gap-4 mt-auto pt-4 border-t border-white/5">
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-zinc-800 border border-white/10 overflow-hidden shrink-0">
                 <img 
                   // Strictly uses the Google/GitHub avatar URL saved in the database
@@ -147,32 +162,32 @@ export default function Testimonials() {
             <MessageSquareQuote className="w-4 h-4 text-purple-400" /> Community
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-white">
-  <span className="text-zinc-500 block mt-2 text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
-    Wall Of {" "}
-    <TypeAnimation
-      sequence={[
-        "Trust.",
-        2000,
-        "Endorsements.",
-        2000,
-        "Impact.",
-        2000,
-        "Recognition.",
-        2000,
-      ]}
-      wrapper="span"
-      speed={50}
-      repeat={Infinity}
-      className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500"
-    />
-  </span>
-</h2>
+            <span className="text-zinc-500 block mt-2 text-3xl sm:text-4xl md:text-6xl lg:text-7xl">
+              Wall Of {" "}
+              <TypeAnimation
+                sequence={[
+                  "Trust.",
+                  2000,
+                  "Endorsements.",
+                  2000,
+                  "Impact.",
+                  2000,
+                  "Recognition.",
+                  2000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500"
+              />
+            </span>
+          </h2>
         </div>
 
         {/* WRITE A REVIEW BUTTON */}
         <button 
           onClick={() => setIsModalOpen(true)}
-          className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-orange-500 px-6 font-medium text-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(249,115,22,0.3)]"
+          className="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-orange-500 px-6 font-medium text-white transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(249,115,22,0.3)] shrink-0"
         >
           <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56"></span>
           <span className="relative flex items-center gap-2 group-hover:text-orange-500 transition-colors">

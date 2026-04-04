@@ -7,6 +7,7 @@ import About from "../components/About";
 import ContactMe from "../components/ContactMe";
 import PortfolioChat from "../components/PortfolioChat";
 import Testimonials from "../components/Testimonials";
+import GlobalAuthToast from "../components/GlobalAuthToast";
 export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen">
@@ -17,7 +18,7 @@ export default function Home() {
       <Testimonials/>
       <ContactMe/>
       <PortfolioChat/>
-      
+      <GlobalAuthToast/>
     </main>
   );
 }
