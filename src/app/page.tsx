@@ -8,6 +8,7 @@ import ContactMe from "../components/ContactMe";
 import PortfolioChat from "../components/PortfolioChat";
 import Testimonials from "../components/Testimonials";
 import GlobalAuthToast from "../components/GlobalAuthToast";
+import Footer from "../components/Footer";
 export default function Home() {
   return (
     <main className="bg-black text-white min-h-screen">
@@ -17,6 +18,7 @@ export default function Home() {
       <About/>
       <Testimonials/>
       <ContactMe/>
+      <Footer/>
       <PortfolioChat/>
       <GlobalAuthToast/>
     </main>

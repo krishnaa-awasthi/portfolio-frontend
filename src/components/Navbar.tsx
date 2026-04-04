@@ -6,8 +6,8 @@ import { Menu, X, Send } from "lucide-react";
 
 const links = [
   { name: "About", href: "#about" },
-  { name: "Works", href: "#featuredworks" },
-  { name: "Thoughts", href: "#thoughts" },
+  { name: "Works", href: "#featured-works" },
+  { name: "Thoughts", href: "#testimonials" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -67,10 +67,13 @@ export default function Navbar() {
             expanded || isMobile ? "text-left" : "mx-auto"
           }`}
         >
-          Krishna{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500">
-            Awasthi
-          </span>
+          {/* FIX: Wrapped the name inside the anchor tag */}
+          <a href="/" className="cursor-pointer hover:opacity-80 transition-opacity">
+            Krishna{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-purple-500">
+              Awasthi
+            </span>
+          </a>
         </div>
 
         {/* DESKTOP LINKS */}

@@ -186,7 +186,7 @@ function StatsCard() {
 
 export default function About() {
   return (
-    <section className="relative py-32 px-4 md:px-8 text-white bg-black min-h-screen">
+    <section id="about" className="relative py-32 px-4 md:px-8 text-white bg-black min-h-screen">
       
       {/* Subtle Background Elements */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-purple-500/5 blur-[100px] rounded-full pointer-events-none" />

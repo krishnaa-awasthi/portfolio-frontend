@@ -154,7 +154,7 @@ export default function Testimonials() {
   const row2 = liveReviews.filter((_, i) => i % 2 !== 0);
 
   return (
-    <section className="relative py-20 md:py-32 bg-[#0A0A0A] overflow-hidden">
+    <section id="testimonials" className="relative py-20 md:py-32 bg-[#0A0A0A] overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 mb-12 md:mb-16 flex flex-col md:flex-row items-center justify-between relative z-10 gap-6 text-center md:text-left">

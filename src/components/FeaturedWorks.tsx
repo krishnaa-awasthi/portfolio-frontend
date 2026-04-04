@@ -46,7 +46,7 @@ const works = [
 export default function FeaturedWorks() {
   return (
     // FIX: Scaled down py-32 to py-16 on mobile
-    <section className="relative py-16 md:py-32 px-4 md:px-8 text-white bg-[#0A0A0A] overflow-hidden">
+    <section id="featured-works" className="relative py-16 md:py-32 px-4 md:px-8 text-white bg-[#0A0A0A] overflow-hidden">
       {/* Background Subtle Mesh */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         {/* FIX: Scaled down the blur sizes on mobile */}
