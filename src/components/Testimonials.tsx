@@ -99,8 +99,9 @@ export default function Testimonials() {
     if (data) setLiveReviews(data);
   };
 
+  // FIX: Changed .single() to .maybeSingle()
   const checkExistingReview = async (userId: string) => {
-    const { data } = await supabase.from('reviews').select('*').eq('user_id', userId).single();
+    const { data } = await supabase.from('reviews').select('*').eq('user_id', userId).maybeSingle();
     if (data) {
       setIsEditing(true);
       setReviewText(data.text);
