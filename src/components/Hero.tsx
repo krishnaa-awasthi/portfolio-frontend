@@ -1,35 +1,65 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ArrowUpRight, Github, Terminal } from "lucide-react";
 import ProfileSlider from "./ProfileSlider";
-// import FloatingTech from "./FloatingTech";
 
 export default function Hero() {
+  // State to hold how many grid cells we need to fill the screen
+  const [gridCells, setGridCells] = useState(0);
+
+  // Calculate the grid dynamically based on window size
+  useEffect(() => {
+    const calculateGrid = () => {
+      // Use 64px (4rem) for desktop, 48px (3rem) for mobile to match your previous sizes
+      const cellSize = window.innerWidth >= 768 ? 64 : 48; 
+      
+      // Calculate how many columns and rows fit the screen (+2 buffer to prevent empty edges)
+      const columns = Math.ceil(window.innerWidth / cellSize) + 2;
+      const rows = Math.ceil(window.innerHeight / cellSize) + 2;
+      
+      setGridCells(columns * rows);
+    };
+
+    // Run on mount
+    calculateGrid();
+
+    // Recalculate if user resizes the window
+    window.addEventListener("resize", calculateGrid);
+    return () => window.removeEventListener("resize", calculateGrid);
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center bg-[#0A0A0A] overflow-hidden px-4 md:px-8">
       
-      {/* 1. Modern Background: Grid & Soft Mesh Glows */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+      {/* 1. INTERACTIVE BACKGROUND GRID */}
+      {/* We use flex-wrap to stack the boxes. The radial mask keeps your beautiful faded edges. */}
+      <div className="absolute inset-0 flex flex-wrap justify-center content-start overflow-hidden [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-80 z-0">
+        {Array.from({ length: gridCells }).map((_, i) => (
+          <div
+            key={i}
+            // hover:duration-0 = lights up instantly. duration-700 = fades out slowly.
+            className="w-12 h-12 md:w-16 md:h-16 border-r border-b border-white/[0.03] hover:bg-orange-500/20 transition-colors duration-700 hover:duration-0"
+          />
+        ))}
+      </div>
       
-      {/* FIX: Scaled down glows on mobile to prevent washing out the text */}
-      <div className="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-500/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
-      <div className="absolute bottom-0 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-500/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
-
-      {/* Floating Icons (Uncomment when ready) */}
-      {/* <FloatingTech /> */}
+      {/* 2. Soft Mesh Glows */}
+      <div className="absolute top-0 left-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-orange-500/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none mix-blend-screen z-0" />
+      <div className="absolute bottom-0 right-1/4 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-500/10 blur-[80px] md:blur-[120px] rounded-full pointer-events-none mix-blend-screen z-0" />
 
       {/* Main Content Container */}
-      {/* FIX: Reduced the vertical gap on mobile from gap-12 to gap-8 so the slider isn't pushed too far down */}
-      <div className="max-w-7xl w-full grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-20 items-center z-10 pt-24 md:pt-20 pb-12 lg:py-0">
+      <div className="max-w-7xl w-full grid lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-20 items-center z-10 pt-24 md:pt-20 pb-12 lg:py-0 pointer-events-none">
         
         {/* LEFT SIDE: Text & CTAs */}
+        {/* Re-enable pointer events here so buttons still work! */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-start"
+          className="flex flex-col items-start pointer-events-auto"
         >
           {/* Availability Badge */}
           <motion.div 
@@ -72,7 +102,6 @@ export default function Hero() {
           </p>
 
           {/* CTAs */}
-          {/* FIX: Scaled buttons from h-14 to h-12 on mobile, and px-8 to px-6 */}
           <div className="flex flex-wrap items-center gap-3 md:gap-4 w-full sm:w-auto">
             <a
               href="/projects"
@@ -93,7 +122,6 @@ export default function Hero() {
           </div>
 
           {/* Quick Stats / Trust Indicators */}
-          {/* FIX: Added flex-wrap and scaled down gaps so they don't break on narrow screens */}
           <div className="mt-8 md:mt-12 flex flex-wrap items-center gap-3 md:gap-6 text-xs md:text-sm font-medium text-zinc-500">
             <div className="flex items-center gap-1.5 md:gap-2">
               <Terminal className="w-3.5 h-3.5 md:w-4 md:h-4 text-orange-400" />
@@ -112,11 +140,10 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative w-full flex justify-center lg:justify-end mt-4 lg:mt-0"
+          className="relative w-full flex justify-center lg:justify-end mt-4 lg:mt-0 pointer-events-auto"
         >
           {/* Decorative ring around the slider */}
-          {/* FIX: Scaled down the blur ring for mobile */}
-          <div className="absolute inset-0 max-w-[300px] md:max-w-[400px] max-h-[400px] md:max-h-[500px] m-auto bg-gradient-to-tr from-orange-500/20 to-purple-500/20 rounded-3xl blur-xl md:blur-2xl -z-10" />
+          <div className="absolute inset-0 max-w-[300px] md:max-w-[400px] max-h-[400px] md:max-h-[500px] m-auto bg-gradient-to-tr from-orange-500/20 to-purple-500/20 rounded-3xl blur-xl md:blur-2xl -z-10 pointer-events-none" />
           
           <div className="relative w-full max-w-[350px] md:max-w-[450px]">
             <ProfileSlider />

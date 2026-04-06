@@ -1,26 +1,36 @@
 // app/page.tsx
 
-import Hero from "../components/Hero";
 import Navbar from "../components/Navbar";
+import Hero from "../components/Hero";
 import FeaturedWorks from "../components/FeaturedWorks";
 import About from "../components/About";
-import ContactMe from "../components/ContactMe";
-import PortfolioChat from "../components/PortfolioChat";
 import Testimonials from "../components/Testimonials";
-import GlobalAuthToast from "../components/GlobalAuthToast";
+import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
+import PortfolioChat from "../components/PortfolioChat";
+import GlobalAuthToast from "../components/GlobalAuthToast";
+
 export default function Home() {
   return (
-    <main className="bg-black text-white min-h-screen">
+    <main className="relative min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden max-w-[100vw]">
+      
+      {/* Navigation */}
       <Navbar />
+
+      {/* Main Page Sections */}
       <Hero />
-      <FeaturedWorks/>
-      <About/>
-      <Testimonials/>
-      <ContactMe/>
-      <Footer/>
-      <PortfolioChat/>
-      <GlobalAuthToast/>
+      <FeaturedWorks />
+      <About />
+      <Testimonials />
+      <ContactMe />
+
+      {/* Footer */}
+      <Footer />
+
+      {/* Floating & Global Components */}
+      <PortfolioChat />
+      <GlobalAuthToast />
+      
     </main>
   );
 }
