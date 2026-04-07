@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Send } from "lucide-react";
+import {MessageSquare, Menu, X, Send } from "lucide-react";
 
 const links = [
   { name: "About", href: "#about" },
@@ -104,7 +104,7 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
               className="p-2 rounded-full bg-white/10 border border-white/20 backdrop-blur-md hover:bg-white/20 transition cursor-pointer"
             >
-              <Send className="w-5 h-5 text-white" />
+              <MessageSquare className="w-5 h-5 text-white" />
             </motion.button>
           )}
 

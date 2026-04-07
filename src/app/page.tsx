@@ -9,6 +9,7 @@ import ContactMe from "../components/ContactMe";
 import Footer from "../components/Footer";
 import PortfolioChat from "../components/PortfolioChat";
 import GlobalAuthToast from "../components/GlobalAuthToast";
+import WelcomeModal from "../components/WelcomeModal";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
       {/* Floating & Global Components */}
       <PortfolioChat />
       <GlobalAuthToast />
+      <WelcomeModal />
       
     </main>
   );
