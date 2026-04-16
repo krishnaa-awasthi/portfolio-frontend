@@ -15,20 +15,13 @@ export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden max-w-[100vw]">
       
-      {/* Navigation */}
       <Navbar />
-
-      {/* Main Page Sections */}
       <Hero />
       <FeaturedWorks />
       <About />
       <Testimonials />
       <ContactMe />
-
-      {/* Footer */}
-      <Footer />
-
-      {/* Floating & Global Components */}
+      
       <PortfolioChat />
       <GlobalAuthToast />
       <WelcomeModal />
