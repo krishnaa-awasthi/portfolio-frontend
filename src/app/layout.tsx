@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "../components/Footer"; // <-- Brought your Footer back!
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +28,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      {/* FIX: Applied the Geist font variables and added 'antialiased' for smooth text rendering */}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans bg-[#0A0A0A] text-white overflow-x-hidden w-full`}>
         {children}
+        <Footer /> {/* <-- Footer stays at the bottom */}
       </body>
     </html>
   );
