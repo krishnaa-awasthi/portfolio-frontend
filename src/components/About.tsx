@@ -47,14 +47,14 @@ const experience = [
     role: "Full Stack Developer",
     company: "Freelancer",
     location: "Remote",
-    period: "Jan 2025 - Present",
+    
     description: "Designed and developed client-specific websites, automation tools, and customized business solutions with full deployment lifecycles.",
   },
   {
     role: "Team Lead - Campus Social Network",
     company: "PSIT",
     location: "Kanpur, UP",
-    period: "June 2025 - July 2025",
+    
     description: "Led a team of developers to architect and build a secure, high-performance campus social network platform for over 500 users.",
   },
 ];
@@ -259,7 +259,7 @@ export default function About() {
                   
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2 gap-2">
                     <h4 className="text-lg font-semibold text-zinc-100">{exp.role}</h4>
-                    <span className="text-sm font-medium text-zinc-500 font-mono">{exp.period}</span>
+                    {exp.period && <span className="text-sm font-medium text-zinc-500 font-mono">{exp.period}</span>}
                   </div>
                   <p className="text-orange-400/80 font-medium text-sm mb-4">
                     {exp.company} <span className="text-zinc-600 px-1">•</span> {exp.location}
