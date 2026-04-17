@@ -40,7 +40,7 @@ const experience = [
     role: "Full Stack Developer Intern",
     company: "NexusCzar Pvt. Ltd.",
     location: "Remote",
-    period: "June 2023 - Present",
+    period: "September 2025 - October 2025",
     description: "Developing and maintaining scalable web applications using React and Node.js. Focused on performance optimization and responsive UI implementation.",
   },
   {
@@ -54,7 +54,7 @@ const experience = [
     role: "Team Lead - Campus Social Network",
     company: "PSIT",
     location: "Kanpur, UP",
-    period: "Sep 2025 - Oct 2025",
+    period: "June 2025 - July 2025",
     description: "Led a team of developers to architect and build a secure, high-performance campus social network platform for over 500 users.",
   },
 ];
@@ -64,7 +64,7 @@ const education = [
     degree: "B.Tech in Computer Science",
     institution: "Pranveer Singh Institute of Technology",
     period: "2023 - 2027",
-    grade: "7.8 CGPA",
+    grade: "7.62 CGPA",
     highlights: ["DSA", "OOPs", "DBMS", "OS", "CN", "Web Dev"],
   },
   {
