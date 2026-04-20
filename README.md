@@ -33,14 +33,3 @@ This project goes beyond a static website by integrating real-time WebSockets, s
 
 **Backend & Database:**
 * [Supabase](https://supabase.com/) (PostgreSQL, Auth, Realtime WebSockets, Storage)
-
----
-
-## 🚦 Getting Started
-
-To run this project locally, you will need Node.js installed and a Supabase project set up.
-
-### 1. Clone the repository
-```bash
-git clone [https://github.com/krishnaa-awasthi/portfolio-frontend.git](https://github.com/krishnaa-awasthi/portfolio-frontend.git)
-cd portfolio-frontend
