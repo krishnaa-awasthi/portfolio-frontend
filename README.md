@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Krishna Awasthi — Digital Headquarters
 
-## Getting Started
+A high-performance, highly interactive full-stack personal portfolio built to showcase engineering skills, rather than just list them. 
 
-First, run the development server:
+This project goes beyond a static website by integrating real-time WebSockets, secure OAuth authentication, and dynamic database management into a sleek, glassmorphic UI.
 
+**🌐 Live Demo:** [krisshnaa.online](https://krisshnaa.online)
+
+---
+
+## ✨ Key Features
+
+* **💬 Real-Time Live Chat:** A custom messaging system built with Supabase Realtime allowing visitors to ping me directly from the homepage.
+* **🛡️ Admin Command Center:** A secure, password-protected dashboard to monitor live chats, moderate messages, and manage the portfolio's data.
+* **🤝 The "Wall of Trust":** An authenticated review system where peers and clients can log in via **Google** or **GitHub OAuth** to leave verified testimonials.
+* **☁️ Dynamic Asset Loading:** Integration with Supabase Storage as a CDN for lazy-loading user-uploaded profile pictures and certificates.
+* **🎨 Premium Interactive UI:** Built with Tailwind CSS and Framer Motion for smooth, physics-based animations, scroll reveals, and responsive glassmorphism.
+
+---
+
+## 🛠️ Tech Stack
+
+**Frontend Architecture:**
+* [Next.js 16](https://nextjs.org/) (App Router)
+* [React](https://react.dev/)
+* [TypeScript](https://www.typescriptlang.org/)
+
+**Styling & Animation:**
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Framer Motion](https://www.framer.com/motion/)
+* [Lucide Icons](https://lucide.dev/)
+* [Geist Font Family](https://vercel.com/font)
+
+**Backend & Database:**
+* [Supabase](https://supabase.com/) (PostgreSQL, Auth, Realtime WebSockets, Storage)
+
+---
+
+## 🚦 Getting Started
+
+To run this project locally, you will need Node.js installed and a Supabase project set up.
+
+### 1. Clone the repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+git clone [https://github.com/krishnaa-awasthi/portfolio-frontend.git](https://github.com/krishnaa-awasthi/portfolio-frontend.git)
+cd portfolio-frontend
