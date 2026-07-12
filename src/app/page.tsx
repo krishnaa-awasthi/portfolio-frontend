@@ -11,7 +11,6 @@ import PortfolioChat from "../components/PortfolioChat";
 import GlobalAuthToast from "../components/GlobalAuthToast";
 import WelcomeModal from "../components/WelcomeModal";
 import Certifications from "../components/Certfications";
-
 export default function Home() {
   return (
     <main className="relative min-h-screen bg-[#0A0A0A] text-white overflow-x-hidden max-w-[100vw]">

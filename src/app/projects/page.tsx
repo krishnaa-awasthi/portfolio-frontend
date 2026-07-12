@@ -5,9 +5,17 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, Github, ArrowUpRight, Filter } from "lucide-react";
 import Link from "next/link";
 
-// 1. Updated Data Array with 'type' for filtering and your new freelance links
 const allProjects = [
   // --- FREELANCE WORKS ---
+  {
+    title: "Fast In Cloud",
+    type: "Freelance",
+    category: "Corporate Site",
+    description: "Developed a responsive corporate website for a cloud services company, focusing on lead generation and service showcase.",
+    tech: ["Next.js", "Tailwind CSS", "Framer Motion"],
+    link: "https://fastincloud.com",
+    isGithub: false
+  },
   {
     title: "MQL Experts",
     type: "Freelance",
