@@ -61,6 +61,33 @@ const allProjects = [
     link: "https://business.mqlexperts.com",
     isGithub: false
   },
+  {
+    title: "CADsoftware.in",
+    type: "Freelance",
+    category: "B2B Platform",
+    description: "A dedicated  portal for enterprise clients to interact with CADsoftware.in' services and track their business growth.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://cadsoftware.in",
+    isGithub: false
+  },
+  {
+    title: "CADsoftware.in",
+    type: "Freelance",
+    category: "B2B Platform",
+    description: "A dedicated  portal for enterprise clients to interact with CADsoftware.in' services and track their business growth.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://cadsoftware.in",
+    isGithub: false
+  },
+  {
+    title: "SHIV MISHTHAN BHANDAR",
+    type: "Freelance",
+    category: "E-Commerce",
+    description: "A dedicated  portal for consumers to interact with Shiv Mishthan Bhandar's products and services.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+    link: "https://smb1997.in",
+    isGithub: false
+  }
 
   // --- PERSONAL PROJECTS ---
   {
